@@ -1,6 +1,7 @@
 import javax.swing.*;
+import java.awt.*;
 
-public class kiosk {
+public class Kiosk extends JFrame{
     private JPanel BasePanel;
     private JPanel NorthPanel;
     private JPanel SouthPanel;
@@ -47,24 +48,24 @@ public class kiosk {
     private JLabel spriteLabel;
     private JPanel spriteImage;
     private JLabel spritePrice;
-
-
-    public kiosk() {
+    Font font1 = new Font(Font.MONOSPACED, Font.BOLD, 13);
+    Font font2 = new Font(Font.MONOSPACED, Font.CENTER_BASELINE, 25);
+    int count; int total=0; int col=0; int row=0; String contents = "";
+    public Kiosk() {
+        setContentPane(BasePanel);
+        setTitle("hamburger kiosk");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setSize(500,600);
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
 
     private void createUIComponents() {
-
 
         // TODO: place custom component creation code here
     }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("kiosk");
-        frame.setContentPane(new kiosk().BasePanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setTitle("kiosk");
-        frame.setSize(300,400);
-        frame.pack();
-        frame.setVisible(true);
+        new Kiosk();
     }
 }
