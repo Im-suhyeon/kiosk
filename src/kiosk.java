@@ -48,6 +48,7 @@ public class kiosk {
     private JPanel spriteImage;
     private JLabel spritePrice;
 
+
     public kiosk() {
     }
 
@@ -55,5 +56,15 @@ public class kiosk {
 
 
         // TODO: place custom component creation code here
+    }
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("kiosk");
+        frame.setContentPane(new kiosk().BasePanel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setTitle("kiosk");
+        frame.setSize(300,400);
+        frame.pack();
+        frame.setVisible(true);
     }
 }
