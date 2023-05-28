@@ -60,7 +60,7 @@ public class Kiosk extends JFrame{
     private void createTable(){
         CartTable.setModel(new DefaultTableModel(
                 null,
-                new String[]{"상품명", "가격", "수량", "총 금액"}
+                new String[]{"상품명", "가격", "수량", "합계", "총 금액"}
         ));
     }
 
