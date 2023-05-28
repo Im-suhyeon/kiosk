@@ -81,16 +81,13 @@ public class Kiosk extends JFrame{
         setContentPane(BasePanel);
         setTitle("hamburger kiosk");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(1000,800);
+        setSize(1000,1000);
         setLocationRelativeTo(null);
         setVisible(true);
 
         createTable();
 
         // 참고 : https://eating-coding.tistory.com/5
-
-
-
         ImageIcon bulgogiicon = new ImageIcon("img/bulgogi.jpg");
         Image bulgogiimg = bulgogiicon.getImage();
         Image bulgogichangeImg = bulgogiimg.getScaledInstance(100,100,Image.SCALE_SMOOTH);
@@ -119,7 +116,7 @@ public class Kiosk extends JFrame{
         deriImagePanel.add(deriImageLabel);
         deriImagePanel.setSize(100,100);
         deriImagePanel.setVisible(true);
-        
+
 
         ImageIcon cokeicon = new ImageIcon("img/coke.jpg");
         Image cokeimg = cokeicon.getImage();
@@ -129,16 +126,6 @@ public class Kiosk extends JFrame{
         cokeImagePanel.add(cokeImageLabel);
         cokeImagePanel.setSize(100,100);
         cokeImagePanel.setVisible(true);
-
-
-        ImageIcon icecreamicon = new ImageIcon("img/icecream.jpg");
-        Image icecreamimg = icecreamicon.getImage();
-        Image icecreamchangeImg = icecreamimg.getScaledInstance(100,100,Image.SCALE_SMOOTH);
-        ImageIcon icecreamchangeIcon = new ImageIcon(icecreamchangeImg);
-        icecreamImageLabel = new JLabel(icecreamchangeIcon);
-        icecreamImagePanel.add(icecreamImageLabel);
-        icecreamImagePanel.setSize(100,100);
-        icecreamImagePanel.setVisible(true);
 
 
         ImageIcon spriteicon = new ImageIcon("img/sprite.jpg");
@@ -151,6 +138,14 @@ public class Kiosk extends JFrame{
         spriteImagePanel.setVisible(true);
 
 
+        ImageIcon icecreamicon = new ImageIcon("img/icecream.jpg");
+        Image icecreamimg = icecreamicon.getImage();
+        Image icecreamchangeImg = icecreamimg.getScaledInstance(100,100,Image.SCALE_SMOOTH);
+        ImageIcon icecreamchangeIcon = new ImageIcon(icecreamchangeImg);
+        icecreamImageLabel = new JLabel(icecreamchangeIcon);
+        icecreamImagePanel.add(icecreamImageLabel);
+        icecreamImagePanel.setSize(100,100);
+        icecreamImagePanel.setVisible(true);
 
     }
 
