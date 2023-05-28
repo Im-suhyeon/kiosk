@@ -81,14 +81,16 @@ public class Kiosk extends JFrame{
         setContentPane(BasePanel);
         setTitle("hamburger kiosk");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(500,700);
+        setSize(1000,800);
         setLocationRelativeTo(null);
         setVisible(true);
 
         createTable();
 
-
         // 참고 : https://eating-coding.tistory.com/5
+
+
+
         ImageIcon bulgogiicon = new ImageIcon("img/bulgogi.jpg");
         Image bulgogiimg = bulgogiicon.getImage();
         Image bulgogichangeImg = bulgogiimg.getScaledInstance(100,100,Image.SCALE_SMOOTH);
@@ -108,6 +110,45 @@ public class Kiosk extends JFrame{
         shrimpImagePanel.setSize(100,100);
         shrimpImagePanel.setVisible(true);
 
+
+        ImageIcon deriicon = new ImageIcon("img/deri.jpg");
+        Image deriimg = deriicon.getImage();
+        Image derichangeImg = deriimg.getScaledInstance(100,100,Image.SCALE_SMOOTH);
+        ImageIcon derichangeIcon = new ImageIcon(derichangeImg);
+        deriImageLabel = new JLabel(derichangeIcon);
+        deriImagePanel.add(deriImageLabel);
+        deriImagePanel.setSize(100,100);
+        deriImagePanel.setVisible(true);
+        
+
+        ImageIcon cokeicon = new ImageIcon("img/coke.jpg");
+        Image cokeimg = cokeicon.getImage();
+        Image cokechangeImg = cokeimg.getScaledInstance(100,100,Image.SCALE_SMOOTH);
+        ImageIcon cokechangeIcon = new ImageIcon(cokechangeImg);
+        cokeImageLabel = new JLabel(cokechangeIcon);
+        cokeImagePanel.add(cokeImageLabel);
+        cokeImagePanel.setSize(100,100);
+        cokeImagePanel.setVisible(true);
+
+
+        ImageIcon icecreamicon = new ImageIcon("img/icecream.jpg");
+        Image icecreamimg = icecreamicon.getImage();
+        Image icecreamchangeImg = icecreamimg.getScaledInstance(100,100,Image.SCALE_SMOOTH);
+        ImageIcon icecreamchangeIcon = new ImageIcon(icecreamchangeImg);
+        icecreamImageLabel = new JLabel(icecreamchangeIcon);
+        icecreamImagePanel.add(icecreamImageLabel);
+        icecreamImagePanel.setSize(100,100);
+        icecreamImagePanel.setVisible(true);
+
+
+        ImageIcon spriteicon = new ImageIcon("img/sprite.jpg");
+        Image spriteimg = spriteicon.getImage();
+        Image spritechangeImg = spriteimg.getScaledInstance(100,100,Image.SCALE_SMOOTH);
+        ImageIcon spritechangeIcon = new ImageIcon(spritechangeImg);
+        spriteImageLabel = new JLabel(spritechangeIcon);
+        spriteImagePanel.add(spriteImageLabel);
+        spriteImagePanel.setSize(100,100);
+        spriteImagePanel.setVisible(true);
 
 
 
