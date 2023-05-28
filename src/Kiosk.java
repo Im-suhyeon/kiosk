@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
 public class Kiosk extends JFrame{
@@ -7,7 +8,6 @@ public class Kiosk extends JFrame{
     private JPanel SouthPanel;
     private JPanel RightPanel;
     private JPanel LeftPanel;
-    private JTable Cart;
     private JButton OrderCancel;
     private JButton OrderComplete;
     private JButton PayCard;
@@ -48,16 +48,35 @@ public class Kiosk extends JFrame{
     private JLabel spriteLabel;
     private JPanel spriteImage;
     private JLabel spritePrice;
+    private JTable CartTable;
+    private JScrollPane CartScrollPane;
+
+
     Font font1 = new Font(Font.MONOSPACED, Font.BOLD, 13);
     Font font2 = new Font(Font.MONOSPACED, Font.CENTER_BASELINE, 25);
     int count; int total=0; int col=0; int row=0; String contents = "";
+
+
+    private void createTable(){
+        CartTable.setModel(new DefaultTableModel(
+                null,
+                new String[]{"상품명", "가격", "수량", "총 금액"}
+        ));
+    }
+
     public Kiosk() {
+
         setContentPane(BasePanel);
         setTitle("hamburger kiosk");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(500,600);
+        setSize(600,1000);
         setLocationRelativeTo(null);
         setVisible(true);
+
+        createTable();
+
+
+        
     }
 
     private void createUIComponents() {
@@ -67,5 +86,6 @@ public class Kiosk extends JFrame{
 
     public static void main(String[] args) {
         new Kiosk();
+
     }
 }

@@ -29,14 +29,19 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="526f6" class="javax.swing.JTable" binding="Cart">
+          <scrollpane id="6735d" binding="CartScrollPane">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="50"/>
-              </grid>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
-          </component>
+            <border type="none"/>
+            <children>
+              <component id="d3c7a" class="javax.swing.JTable" binding="CartTable">
+                <constraints/>
+                <properties/>
+              </component>
+            </children>
+          </scrollpane>
         </children>
       </grid>
       <grid id="e755e" binding="RightPanel" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -86,7 +91,8 @@
             <properties/>
             <border type="none"/>
             <children>
-              <grid id="adae4" binding="deriImage" layout-manager="BorderLayout" hgap="0" vgap="0">
+              <grid id="adae4" binding="deriImage" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -142,7 +148,8 @@
             <properties/>
             <border type="none"/>
             <children>
-              <grid id="a5cb1" binding="shrimpImage" layout-manager="BorderLayout" hgap="0" vgap="0">
+              <grid id="a5cb1" binding="shrimpImage" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -198,7 +205,8 @@
             <properties/>
             <border type="none"/>
             <children>
-              <grid id="688b2" binding="bulgogiImage" layout-manager="BorderLayout" hgap="0" vgap="0">
+              <grid id="688b2" binding="bulgogiImage" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -254,7 +262,8 @@
             <properties/>
             <border type="none"/>
             <children>
-              <grid id="e684c" binding="cokeImage" layout-manager="BorderLayout" hgap="0" vgap="0">
+              <grid id="e684c" binding="cokeImage" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -318,7 +327,8 @@
                   <text value="아이스크림"/>
                 </properties>
               </component>
-              <grid id="903c3" binding="icecreamImage" layout-manager="BorderLayout" hgap="0" vgap="0">
+              <grid id="903c3" binding="icecreamImage" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -377,7 +387,8 @@
                   <text value="스프라이트"/>
                 </properties>
               </component>
-              <grid id="edffe" binding="spriteImage" layout-manager="BorderLayout" hgap="0" vgap="0">
+              <grid id="edffe" binding="spriteImage" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
