@@ -18,7 +18,6 @@ public class Kiosk extends JFrame{
     private JPanel icecreamPanel;
     private JComboBox bulgogiAmount;
     private JButton bulgogiCart;
-    private JPanel bulgogiImage;
     private JComboBox shrimpAmount;
     private JButton shrimpCart;
     private JComboBox deriAmount;
@@ -28,32 +27,38 @@ public class Kiosk extends JFrame{
     private JLabel Title;
     private JComboBox icecreamAmount;
     private JButton icecreamCart;
-    private JPanel deriImage;
+    private JPanel deriImagePanel;
     private JLabel deriLabel;
     private JLabel deriPrice;
     private JLabel bulgogiLabel;
     private JLabel bulgogiPrice;
     private JLabel shrimpLabel;
     private JLabel shrimpPrice;
-    private JPanel shrimpImage;
-    private JPanel cokeImage;
+    private JPanel shrimpImagePanel;
+    private JPanel cokeImagePanel;
     private JLabel cokeLabel;
     private JLabel cokePrice;
     private JLabel icecreamLabel;
-    private JPanel icecreamImage;
+    private JPanel icecreamImagePanel;
     private JLabel icecreamPrice;
     private JComboBox spriteAmount;
     private JButton spriteCart;
     private JPanel spritePanel;
     private JLabel spriteLabel;
-    private JPanel spriteImage;
+    private JPanel spriteImagePanel;
     private JLabel spritePrice;
     private JTable CartTable;
     private JScrollPane CartScrollPane;
+    private JPanel bulgogiImagePanel;
+
+    private JLabel bulgogiImageLabel;
+    private JLabel deriImageLabel;
+    private JLabel shrimpImageLabel;
+    private JLabel cokeImageLabel;
+    private JLabel icecreamImageLabel;
+    private JLabel spriteImageLabel;
 
 
-    Font font1 = new Font(Font.MONOSPACED, Font.BOLD, 13);
-    Font font2 = new Font(Font.MONOSPACED, Font.CENTER_BASELINE, 25);
     int count; int total=0; int col=0; int row=0; String contents = "";
 
 
@@ -68,6 +73,9 @@ public class Kiosk extends JFrame{
         ));
     }
 
+
+
+
     public Kiosk() {
 
         setContentPane(BasePanel);
@@ -80,7 +88,29 @@ public class Kiosk extends JFrame{
         createTable();
 
 
-        
+        // 참고 : https://eating-coding.tistory.com/5
+        ImageIcon bulgogiicon = new ImageIcon("img/bulgogi.jpg");
+        Image bulgogiimg = bulgogiicon.getImage();
+        Image bulgogichangeImg = bulgogiimg.getScaledInstance(100,100,Image.SCALE_SMOOTH);
+        ImageIcon bulgogichangeIcon = new ImageIcon(bulgogichangeImg);
+        bulgogiImageLabel = new JLabel(bulgogichangeIcon);
+        bulgogiImagePanel.add(bulgogiImageLabel);
+        bulgogiImagePanel.setSize(100,100);
+        bulgogiImagePanel.setVisible(true);
+
+
+        ImageIcon shrimpicon = new ImageIcon("img/shrimp.jpg");
+        Image shrimpimg = shrimpicon.getImage();
+        Image shrimpchangeImg = shrimpimg.getScaledInstance(100,100,Image.SCALE_SMOOTH);
+        ImageIcon shrimpchangeIcon = new ImageIcon(shrimpchangeImg);
+        shrimpImageLabel = new JLabel(shrimpchangeIcon);
+        shrimpImagePanel.add(shrimpImageLabel);
+        shrimpImagePanel.setSize(100,100);
+        shrimpImagePanel.setVisible(true);
+
+
+
+
     }
 
     private void createUIComponents() {
@@ -93,3 +123,4 @@ public class Kiosk extends JFrame{
 
     }
 }
+
