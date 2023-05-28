@@ -58,8 +58,12 @@ public class Kiosk extends JFrame{
 
 
     private void createTable(){
+        Object[][] data ={
+                {"데리버거", 4000, 2, 8000, 8000},
+                {"데리버거", 4000, 1, 4000, 12000}
+        };
         CartTable.setModel(new DefaultTableModel(
-                null,
+                data,
                 new String[]{"상품명", "가격", "수량", "합계", "총 금액"}
         ));
     }
@@ -69,7 +73,7 @@ public class Kiosk extends JFrame{
         setContentPane(BasePanel);
         setTitle("hamburger kiosk");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(600,1000);
+        setSize(500,700);
         setLocationRelativeTo(null);
         setVisible(true);
 
