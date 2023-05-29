@@ -94,9 +94,9 @@ public class Kiosk extends JFrame{
         Image bulgogiimg = bulgogiicon.getImage();
         Image bulgogichangeImg = bulgogiimg.getScaledInstance(100,100,Image.SCALE_SMOOTH);
         ImageIcon bulgogichangeIcon = new ImageIcon(bulgogichangeImg);
-        bulgogiImageLabel = new JLabel(bulgogichangeIcon);
+        bulgogiImageLabel = new JLabel(bulgogiicon);
         bulgogiImagePanel.add(bulgogiImageLabel);
-        bulgogiImagePanel.setSize(100,100);
+        //bulgogiImagePanel.setSize(100,100);
         bulgogiImagePanel.setVisible(true);
 
 
@@ -104,9 +104,9 @@ public class Kiosk extends JFrame{
         Image shrimpimg = shrimpicon.getImage();
         Image shrimpchangeImg = shrimpimg.getScaledInstance(100,100,Image.SCALE_SMOOTH);
         ImageIcon shrimpchangeIcon = new ImageIcon(shrimpchangeImg);
-        shrimpImageLabel = new JLabel(shrimpchangeIcon);
+        shrimpImageLabel = new JLabel(shrimpicon);
         shrimpImagePanel.add(shrimpImageLabel);
-        shrimpImagePanel.setSize(100,100);
+        //shrimpImagePanel.setSize(100,100);
         shrimpImagePanel.setVisible(true);
 
 
@@ -114,9 +114,9 @@ public class Kiosk extends JFrame{
         Image deriimg = deriicon.getImage();
         Image derichangeImg = deriimg.getScaledInstance(100,100,Image.SCALE_SMOOTH);
         ImageIcon derichangeIcon = new ImageIcon(derichangeImg);
-        deriImageLabel = new JLabel(derichangeIcon);
+        deriImageLabel = new JLabel(deriicon);
         deriImagePanel.add(deriImageLabel);
-        deriImagePanel.setSize(100,100);
+        //deriImagePanel.setSize(100,100);
         deriImagePanel.setVisible(true);
 
 
@@ -124,9 +124,9 @@ public class Kiosk extends JFrame{
         Image cokeimg = cokeicon.getImage();
         Image cokechangeImg = cokeimg.getScaledInstance(100,100,Image.SCALE_SMOOTH);
         ImageIcon cokechangeIcon = new ImageIcon(cokechangeImg);
-        cokeImageLabel = new JLabel(cokechangeIcon);
+        cokeImageLabel = new JLabel(cokeicon);
         cokeImagePanel.add(cokeImageLabel);
-        cokeImagePanel.setSize(100,100);
+        //cokeImagePanel.setSize(100,100);
         cokeImagePanel.setVisible(true);
 
 
@@ -134,9 +134,9 @@ public class Kiosk extends JFrame{
         Image spriteimg = spriteicon.getImage();
         Image spritechangeImg = spriteimg.getScaledInstance(100,100,Image.SCALE_SMOOTH);
         ImageIcon spritechangeIcon = new ImageIcon(spritechangeImg);
-        spriteImageLabel = new JLabel(spritechangeIcon);
+        spriteImageLabel = new JLabel(spriteicon);
         spriteImagePanel.add(spriteImageLabel);
-        spriteImagePanel.setSize(100,100);
+        //spriteImagePanel.setSize(100,100);
         spriteImagePanel.setVisible(true);
 
 
@@ -144,9 +144,9 @@ public class Kiosk extends JFrame{
         Image icecreamimg = icecreamicon.getImage();
         Image icecreamchangeImg = icecreamimg.getScaledInstance(100,100,Image.SCALE_SMOOTH);
         ImageIcon icecreamchangeIcon = new ImageIcon(icecreamchangeImg);
-        icecreamImageLabel = new JLabel(icecreamchangeIcon);
+        icecreamImageLabel = new JLabel(icecreamicon);
         icecreamImagePanel.add(icecreamImageLabel);
-        icecreamImagePanel.setSize(100,100);
+        //icecreamImagePanel.setSize(100,100);
         icecreamImagePanel.setVisible(true);
 
         //여기서부터 로직 구현

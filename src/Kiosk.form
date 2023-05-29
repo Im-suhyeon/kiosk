@@ -131,6 +131,11 @@
                   <component id="45325" class="javax.swing.JLabel" binding="deriImageLabel">
                     <constraints border-constraint="Center"/>
                     <properties>
+                      <alignmentX value="0.0"/>
+                      <alignmentY value="0.5"/>
+                      <autoscrolls value="false"/>
+                      <horizontalAlignment value="10"/>
+                      <iconTextGap value="0"/>
                       <text value=" "/>
                     </properties>
                   </component>
@@ -200,6 +205,7 @@
                   <component id="8452c" class="javax.swing.JLabel" binding="shrimpImageLabel">
                     <constraints border-constraint="Center"/>
                     <properties>
+                      <iconTextGap value="4"/>
                       <text value=" "/>
                     </properties>
                   </component>
@@ -313,6 +319,7 @@
                   <component id="5bfb8" class="javax.swing.JLabel" binding="bulgogiImageLabel">
                     <constraints border-constraint="Center"/>
                     <properties>
+                      <iconTextGap value="4"/>
                       <maximumSize width="29" height="17"/>
                       <minimumSize width="29" height="17"/>
                       <text value=" "/>
@@ -342,6 +349,7 @@
                   <component id="34b19" class="javax.swing.JLabel" binding="cokeImageLabel">
                     <constraints border-constraint="Center"/>
                     <properties>
+                      <iconTextGap value="4"/>
                       <text value=" "/>
                     </properties>
                   </component>
@@ -420,6 +428,7 @@
                   <component id="56aaa" class="javax.swing.JLabel" binding="icecreamImageLabel">
                     <constraints border-constraint="Center"/>
                     <properties>
+                      <iconTextGap value="4"/>
                       <text value=" "/>
                     </properties>
                   </component>
@@ -491,6 +500,7 @@
                   <component id="f8221" class="javax.swing.JLabel" binding="spriteImageLabel">
                     <constraints border-constraint="Center"/>
                     <properties>
+                      <iconTextGap value="4"/>
                       <text value=" "/>
                     </properties>
                   </component>
