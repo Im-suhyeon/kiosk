@@ -80,7 +80,7 @@
               <font name="NanumGothic" size="18"/>
               <hideActionText value="false"/>
               <horizontalTextPosition value="0"/>
-              <text value="주문 취소"/>
+              <text value="장바구니 초기화"/>
             </properties>
           </component>
           <component id="23b49" class="javax.swing.JButton" binding="PayCard">
@@ -98,7 +98,7 @@
             </constraints>
             <properties>
               <font name="NanumGothic" size="18"/>
-              <text value="주문 완료"/>
+              <text value="장바구니 담기 완료"/>
             </properties>
           </component>
         </children>

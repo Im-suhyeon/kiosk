@@ -1,6 +1,10 @@
+import order.Cart;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Kiosk extends JFrame{
     private JPanel BasePanel;
@@ -62,15 +66,13 @@ public class Kiosk extends JFrame{
     int count; int total=0; int col=0; int row=0; String contents = "";
 
 
+    DefaultTableModel model;
     private void createTable(){
-        Object[][] data ={
-                {"데리버거", 4000, 2, 8000, 8000},
-                {"데리버거", 4000, 1, 4000, 12000}
-        };
-        CartTable.setModel(new DefaultTableModel(
-                data,
-                new String[]{"상품명", "가격", "수량", "합계", "총 금액"}
-        ));
+        String[] [] data = new String[0][0];
+        String[] title = {"메뉴명", "단가", "수량", "합계", "총 금액"};
+        model = new DefaultTableModel(data, title);
+
+        CartTable.setModel(model);
     }
 
 
@@ -146,6 +148,200 @@ public class Kiosk extends JFrame{
         icecreamImagePanel.add(icecreamImageLabel);
         icecreamImagePanel.setSize(100,100);
         icecreamImagePanel.setVisible(true);
+
+        //여기서부터 로직 구현
+        order.Cart cart = new Cart();
+
+        TextArea txt = new TextArea();
+
+        String inputStr[] = new String[5];
+
+        bulgogiAmount.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                count = Integer.valueOf(bulgogiAmount.getSelectedItem().toString());
+            }
+        });
+        bulgogiCart.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cart.setCartAmountList(0, count);
+                total += count;
+
+
+                inputStr[0] = cart.getM()[0].getName();
+                inputStr[1] = String.valueOf(cart.getM()[0].getPrice()) + "원";
+                inputStr[2] = ""+count;
+                inputStr[3] = (cart.getM()[0].getPrice()) * count + "원";
+                inputStr[4] = String.valueOf(cart.getPriceAmount()) + "원";
+
+                model.addRow(inputStr);
+//                System.out.println(inputStr[0]);
+//                System.out.println(inputStr[1]);
+//                System.out.println(count + "   ..");
+//                System.out.println(inputStr[4]);
+            }
+        });
+
+        shrimpAmount.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                count = Integer.valueOf(shrimpAmount.getSelectedItem().toString());
+            }
+        });
+        shrimpCart.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cart.setCartAmountList(1, count);
+                total += count;
+
+
+
+                inputStr[0] = cart.getM()[1].getName();
+                inputStr[1] = String.valueOf(cart.getM()[1].getPrice()) + "원";
+                inputStr[2] = ""+count;
+                inputStr[3] = (cart.getM()[1].getPrice()) * count + "원";
+                inputStr[4] = String.valueOf(cart.getPriceAmount()) + "원";
+
+                model.addRow(inputStr);
+            }
+        });
+
+        deriAmount.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                count = Integer.valueOf(deriAmount.getSelectedItem().toString());
+            }
+        });
+
+        deriCart.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cart.setCartAmountList(2, count);
+                total += count;
+
+                inputStr[0] = cart.getM()[2].getName();
+                inputStr[1] = String.valueOf(cart.getM()[2].getPrice()) + "원";
+                inputStr[2] = ""+count;
+                inputStr[3] = (cart.getM()[2].getPrice()) * count + "원";
+                inputStr[4] = String.valueOf(cart.getPriceAmount()) + "원";
+
+                model.addRow(inputStr);
+            }
+        });
+
+
+        cokeAmount.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                count = Integer.valueOf(cokeAmount.getSelectedItem().toString());
+            }
+        });
+        cokeCart.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cart.setCartAmountList(3, count);
+                total += count;
+
+                inputStr[0] = cart.getM()[3].getName();
+                inputStr[1] = String.valueOf(cart.getM()[3].getPrice()) + "원";
+                inputStr[2] = ""+count;
+                inputStr[3] = (cart.getM()[3].getPrice()) * count + "원";
+                inputStr[4] = String.valueOf(cart.getPriceAmount()) + "원";
+
+                model.addRow(inputStr);
+            }
+        });
+
+
+        spriteAmount.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                count = Integer.valueOf(spriteAmount.getSelectedItem().toString());
+            }
+        });
+        spriteCart.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cart.setCartAmountList(4, count);
+                total += count;
+
+                inputStr[0] = cart.getM()[4].getName();
+                inputStr[1] = String.valueOf(cart.getM()[4].getPrice()) + "원";
+                inputStr[2] = ""+count;
+                inputStr[3] = (cart.getM()[4].getPrice()) * count + "원";
+                inputStr[4] = String.valueOf(cart.getPriceAmount()) + "원";
+
+                model.addRow(inputStr);
+            }
+        });
+
+        icecreamAmount.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                count = Integer.valueOf(icecreamAmount.getSelectedItem().toString());
+            }
+        });
+        icecreamCart.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cart.setCartAmountList(5, count);
+                total += count;
+
+                inputStr[0] = cart.getM()[5].getName();
+                inputStr[1] = String.valueOf(cart.getM()[5].getPrice()) + "원";
+                inputStr[2] = ""+count;
+                inputStr[3] = (cart.getM()[5].getPrice()) * count + "원";
+                inputStr[4] = String.valueOf(cart.getPriceAmount()) + "원";
+
+                model.addRow(inputStr);
+            }
+        });
+
+        //장바구니 초기화
+        OrderCancel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cart.resetCart();
+
+                model.setNumRows(0);
+                total = 0;
+                txt.setText("");
+            }
+        });
+
+
+        //장바구니 담기 완료 버튼 누를 시
+        OrderComplete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cart.cartComplete(); // cart가 가지는 order 객체의 필드인 orderCompleteState의 값은 true로 변경해주는 함수
+            }
+        });
+
+        //카드 결제 버튼 누를 시
+        PayCard.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //장바구니 담기 완료 버튼 안 눌렀을 경우
+                if(!cart.getOrder().getOrderCompleteState()) {
+                    JOptionPane.showMessageDialog(BasePanel, "장바구니 담기를 완료해주세요.", "error",JOptionPane.ERROR_MESSAGE);
+                }
+                //장바구니 담기 완료 버튼 눌렀을 경우
+                else {
+                    JOptionPane.showMessageDialog(BasePanel, "결제가 완료되었습니다.", "message", JOptionPane.INFORMATION_MESSAGE);
+                    //장바구니 초기화
+                    cart.resetCart();
+                    cart.getOrder().setOrderCompleteState(false);
+                    model.setNumRows(0);
+                    total = 0;
+                    txt.setText("");
+                }
+            }
+        });
+
+
+
 
     }
 
