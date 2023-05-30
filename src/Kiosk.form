@@ -52,9 +52,11 @@
               <component id="d3c7a" class="javax.swing.JTable" binding="CartTable">
                 <constraints/>
                 <properties>
+                  <autoResizeMode value="4"/>
                   <enabled value="true"/>
+                  <fillsViewportHeight value="true"/>
                   <font name="NanumGothic"/>
-                  <minimumSize width="30" height="50"/>
+                  <minimumSize width="50" height="50"/>
                   <preferredScrollableViewportSize width="450" height="220"/>
                   <preferredSize width="150" height="60"/>
                   <rowHeight value="25"/>
