@@ -1,4 +1,6 @@
 import order.Cart;
+import order.Controller;
+import order.Customer;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -152,6 +154,8 @@ public class Kiosk extends JFrame{
 
         //여기서부터 로직 구현
         order.Cart cart = new Cart();
+        Controller controller = new Controller();
+        Customer customer = new Customer();
 
         TextArea txt = new TextArea();
 
@@ -317,7 +321,9 @@ public class Kiosk extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 cart.cartComplete(); // cart가 가지는 order 객체의 필드인 orderCompleteState의 값은 true로 변경해주는 함수
+                controller.setBill(cart.getPriceAmount());
             }
+
         });
 
         //카드 결제 버튼 누를 시
@@ -331,12 +337,60 @@ public class Kiosk extends JFrame{
                 //장바구니 담기 완료 버튼 눌렀을 경우
                 else {
                     JOptionPane.showMessageDialog(BasePanel, "결제가 완료되었습니다.", "message", JOptionPane.INFORMATION_MESSAGE);
+                    //Controller 클래스에서
+                    controller.setIsPayCard(true);
+
                     //장바구니 초기화
                     cart.resetCart();
                     cart.getOrder().setOrderCompleteState(false);
                     model.setNumRows(0);
                     total = 0;
                     txt.setText("");
+                }
+            }
+        });
+
+        현금결제Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //장바구니 담기 완료 버튼 안 눌렀을 경우
+                if(!cart.getOrder().getOrderCompleteState()) {
+                    JOptionPane.showMessageDialog(BasePanel, "장바구니 담기를 완료해주세요.", "error",JOptionPane.ERROR_MESSAGE);
+                }
+
+                else {
+                    int inputAmount = Integer.parseInt(JOptionPane.showInputDialog(null, "넣을 현금의 값을 입력하세요."));
+                    controller.setIsPayCard(false);
+                    customer.setCashInput(inputAmount);
+
+                    int change = 0;
+                    while ((change = controller.controlCash(customer.getCashInput())) == -1) {
+                        inputAmount = Integer.parseInt(JOptionPane.showInputDialog(null,"입력한 금액이 결제 금액보다 적습니다. 넣을 현금의 값을 입력하세요."));
+                        controller.setIsPayCard(false);
+                        customer.setCashInput(inputAmount);
+                    }
+
+                    change = controller.controlCash(customer.getCashInput());
+
+                    if (change == 0) {
+                        JOptionPane.showMessageDialog(BasePanel, "결제가 완료되었습니다.", "message", JOptionPane.INFORMATION_MESSAGE);
+                        //장바구니 초기화
+                        cart.resetCart();
+                        cart.getOrder().setOrderCompleteState(false);
+                        model.setNumRows(0);
+                        total = 0;
+                        txt.setText("");
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(BasePanel, "결제가 완료되었습니다. 거스름돈" + change + "원이 반환됩니다.", "message", JOptionPane.INFORMATION_MESSAGE);
+                        //장바구니 초기화
+                        cart.resetCart();
+                        cart.getOrder().setOrderCompleteState(false);
+                        model.setNumRows(0);
+                        total = 0;
+                        txt.setText("");
+                    }
+
                 }
             }
         });
