@@ -61,6 +61,7 @@ public class Kiosk extends JFrame{
     private JLabel cokeImageLabel;
     private JLabel icecreamImageLabel;
     private JLabel spriteImageLabel;
+    private JButton 현금결제Button;
 
 
     int count; int total=0; int col=0; int row=0; String contents = "";
