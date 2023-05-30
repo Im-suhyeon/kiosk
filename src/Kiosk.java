@@ -320,8 +320,14 @@ public class Kiosk extends JFrame{
         OrderComplete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cart.cartComplete(); // cart가 가지는 order 객체의 필드인 orderCompleteState의 값은 true로 변경해주는 함수
-                controller.setBill(cart.getPriceAmount());
+                if (model.getRowCount() == 0) {
+                    JOptionPane.showMessageDialog(BasePanel, "장바구니에 담긴 내용이 없습니다.", "error",JOptionPane.ERROR_MESSAGE);
+                }
+                else {
+                    cart.cartComplete(); // cart가 가지는 order 객체의 필드인 orderCompleteState의 값은 true로 변경해주는 함수
+                    controller.setBill(cart.getPriceAmount());
+                }
+
             }
 
         });
