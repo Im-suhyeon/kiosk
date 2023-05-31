@@ -70,6 +70,7 @@ public class Kiosk extends JFrame{
 
 
     DefaultTableModel model;
+    //장바구니 테이블 ui
     private void createTable(){
         String[] [] data = new String[0][0];
         String[] title = {"메뉴명", "단가", "수량", "합계", "총 금액"};
@@ -152,25 +153,32 @@ public class Kiosk extends JFrame{
         //icecreamImagePanel.setSize(100,100);
         icecreamImagePanel.setVisible(true);
 
-        //여기서부터 로직 구현
+//-------여기서부터 로직 구현--------
         order.Cart cart = new Cart();
         Controller controller = new Controller();
         Customer customer = new Customer();
 
+        //장바구니 목록에 추가될 항목들 저장할 객체. inputStr에 담아 저장
         TextArea txt = new TextArea();
-
         String inputStr[] = new String[5];
 
+
+
+        //불고기버거 선택 수량 저장
         bulgogiAmount.addActionListener(new ActionListener() {
             @Override
+            //선택한 수량을 count 변수에 저장
             public void actionPerformed(ActionEvent e) {
                 count = Integer.valueOf(bulgogiAmount.getSelectedItem().toString());
             }
         });
+        //불고기버거 장바구니에 담기 버튼 눌렀을 때
         bulgogiCart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //장바구니에 담긴 불고기 버거의 수량 cartAmountList에 반영
                 cart.setCartAmountList(0, count);
+                //사용자에게 보이는 장바구니 목록의 행 개수
                 total += count;
 
 
@@ -181,13 +189,10 @@ public class Kiosk extends JFrame{
                 inputStr[4] = String.valueOf(cart.getPriceAmount()) + "원";
 
                 model.addRow(inputStr);
-//                System.out.println(inputStr[0]);
-//                System.out.println(inputStr[1]);
-//                System.out.println(count + "   ..");
-//                System.out.println(inputStr[4]);
             }
         });
 
+        //새우버거
         shrimpAmount.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -212,6 +217,7 @@ public class Kiosk extends JFrame{
             }
         });
 
+        //데리버거
         deriAmount.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -236,6 +242,7 @@ public class Kiosk extends JFrame{
         });
 
 
+        //콜라
         cokeAmount.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -259,6 +266,7 @@ public class Kiosk extends JFrame{
         });
 
 
+        //스프라이트
         spriteAmount.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -281,6 +289,8 @@ public class Kiosk extends JFrame{
             }
         });
 
+
+        //아이스크림
         icecreamAmount.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -303,12 +313,15 @@ public class Kiosk extends JFrame{
             }
         });
 
+
+
         //장바구니 초기화
         OrderCancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cart.resetCart();
 
+                //사용자에게 보이는 장바구니 목록 초기화
                 model.setNumRows(0);
                 total = 0;
                 txt.setText("");
@@ -320,17 +333,19 @@ public class Kiosk extends JFrame{
         OrderComplete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (model.getRowCount() == 0) {
+                if (model.getRowCount() == 0) { //장바구니에 담긴 내용이 없을 때
                     JOptionPane.showMessageDialog(BasePanel, "장바구니에 담긴 내용이 없습니다.", "error",JOptionPane.ERROR_MESSAGE);
                 }
                 else {
-                    cart.cartComplete(); // cart가 가지는 order 객체의 필드인 orderCompleteState의 값은 true로 변경해주는 함수
+                    cart.cartComplete(); // cart가 가지는 order 객체의 필드인 orderCompleteState의 값을 true로 변경
+                    // controller의 멤버 필드 bill의 값으로 결제 금액을 할당.
                     controller.setBill(cart.getPriceAmount());
                 }
 
             }
 
         });
+// -- 결제 프로세스 --
 
         //카드 결제 버튼 누를 시
         PayCard.addActionListener(new ActionListener() {
@@ -340,15 +355,18 @@ public class Kiosk extends JFrame{
                 if(!cart.getOrder().getOrderCompleteState()) {
                     JOptionPane.showMessageDialog(BasePanel, "장바구니 담기를 완료해주세요.", "error",JOptionPane.ERROR_MESSAGE);
                 }
-                //장바구니 담기 완료 버튼 눌렀을 경우
+                //장바구니 담기 완료 버튼 눌렀을 경우. 카드 결제 프로세스
                 else {
                     JOptionPane.showMessageDialog(BasePanel, "결제가 완료되었습니다.", "message", JOptionPane.INFORMATION_MESSAGE);
-                    //Controller 클래스에서
+                    //카드 결제이므로 isPayCard에 true 할당.
                     controller.setIsPayCard(true);
 
                     //장바구니 초기화
                     cart.resetCart();
+                    //cart 객체가 가지는 order 객체를 주문완료(결제 완료)상태로 함.
                     cart.getOrder().setOrderCompleteState(false);
+
+                    //사용자에게 보이는 장바구니 목록 초기화
                     model.setNumRows(0);
                     total = 0;
                     txt.setText("");
@@ -364,34 +382,49 @@ public class Kiosk extends JFrame{
                     JOptionPane.showMessageDialog(BasePanel, "장바구니 담기를 완료해주세요.", "error",JOptionPane.ERROR_MESSAGE);
                 }
 
+                //장바구니 담기 완료 버튼 눌렀을 경우. 현금 결제 프로세스 진행
                 else {
                     int inputAmount = Integer.parseInt(JOptionPane.showInputDialog(null, "넣을 현금의 값을 입력하세요."));
+                    //현금 결제이므로 isPayCard에 false 할당.
                     controller.setIsPayCard(false);
+                    //customer 객체가 가지는 cashInput 변수에 inputAmount 값 할당.
                     customer.setCashInput(inputAmount);
 
                     int change = 0;
-                    while ((change = controller.controlCash(customer.getCashInput())) == -1) {
+
+                    //사용자가 입력한 계산 금액(넣은 현금의 값)이 결제 금액보다 적을 경우
+                    while ((change = controller.changeVal(customer.getCashInput())) == -1) {
+                        //inputAmount(넣을 현금의 값) 다시 입력받도록 함
                         inputAmount = Integer.parseInt(JOptionPane.showInputDialog(null,"입력한 금액이 결제 금액보다 적습니다. 넣을 현금의 값을 입력하세요."));
-                        controller.setIsPayCard(false);
+                        //customer 객체가 가지는 cashInput 변수에 inputAmount 값 할당.
                         customer.setCashInput(inputAmount);
                     }
 
-                    change = controller.controlCash(customer.getCashInput());
+                    change = controller.changeVal(customer.getCashInput());
 
+                    //결제금액과 사용자가 입력한 금액 같은 경우(거스름돈이 0원인 경우)
                     if (change == 0) {
                         JOptionPane.showMessageDialog(BasePanel, "결제가 완료되었습니다.", "message", JOptionPane.INFORMATION_MESSAGE);
+
                         //장바구니 초기화
                         cart.resetCart();
+                        //cart 객체가 가지는 order 객체를 주문완료(결제 완료)상태로 함.
                         cart.getOrder().setOrderCompleteState(false);
+
+                        //사용자에게 보이는 장바구니 목록 초기화
                         model.setNumRows(0);
                         total = 0;
                         txt.setText("");
                     }
                     else {
-                        JOptionPane.showMessageDialog(BasePanel, "결제가 완료되었습니다. 거스름돈" + change + "원이 반환됩니다.", "message", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(BasePanel, "결제가 완료되었습니다. 거스름돈 " + change + "원이 반환됩니다.", "message", JOptionPane.INFORMATION_MESSAGE);
+
                         //장바구니 초기화
                         cart.resetCart();
+                        //cart 객체가 가지는 order 객체를 주문완료(결제 완료)상태로 함.
                         cart.getOrder().setOrderCompleteState(false);
+
+                        //사용자에게 보이는 장바구니 목록 초기화
                         model.setNumRows(0);
                         total = 0;
                         txt.setText("");
